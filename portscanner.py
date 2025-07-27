@@ -1,0 +1,16 @@
+import socket
+
+def scan(target):
+    print(f"🔍 Scanning: {target}")
+    for port in range(1, 100):
+        try:
+            s = socket.socket()
+            s.settimeout(0.5)
+            s.connect((target, port))
+            print(f"[+] Open port: {port}")
+            s.close()
+        except:
+            pass
+
+target = input("Enter IP/Host: ")
+scan(target)
